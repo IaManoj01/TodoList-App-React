@@ -38,7 +38,7 @@ function App() {
       // I am using a const because let the update happen first then we set the data to todos 
       const newTodosList = [...todos, {id: unqid(), todo, isCompleted:false}];
       setTodos(newTodosList);
-      console.log("Updated todos:", newTodosList); // Log the new array directly
+      // console.log("Updated todos:", newTodosList); // Log the new array directly
       setTodo('');
     }
   }
@@ -81,8 +81,8 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="md:container md:mx-auto mx-3 my-5 p-5 rounded-xl bg-violet-100 min-h-[80vh] md:w-1/2">
-        <h1 className='font-bold text-center text-xl'>iTask Manage your tasks at one place</h1>
+      <div className="md:container md:mx-auto mx-3 my-5 p-5 rounded-xl bg-violet-100 min-h-[80vh] md:w-[43%]">
+        <h1 className='font-bold text-center text-2xl'>iTask Manage your tasks at one place</h1>
         <div className="addTodo my-5 flex flex-col">
           <h2 className='text-lg font-bold my-1'>Add a Todo</h2>
           <input
@@ -98,14 +98,16 @@ function App() {
         </div>
 
         
-        <input type="checkbox" name="" id="" onChange={toggleFinished} checked={showFinished} /> Show Finished
+        <input type="checkbox" name="" id="show" onChange={toggleFinished} checked={showFinished} /> 
+        <label htmlFor="show"> Show Finished</label>
+        <hr className='my-1'/>
         <h1 className='text-lg font-bold my-4'>Your Todos</h1>
 
         <div className="todos">
           {todos.length===0 && <div className='m-5'>No Todos to Display</div> }
           {todos.map((item, index) => {
             return (showFinished || !item.isCompleted) && (
-              <div key={item.id} className='todo flex justify-between my-0.5 md:w-7/8'>
+              <div key={item.id} className='todo flex justify-between my-0.5 md:w-[95%]'>
                 <div className="flex gap-5">
                   <input type="checkbox" onChange={(e)=>{handleCheckBox(e,index)}} name={item.id} id="" />
                   <div className={item.isCompleted?"line-through":""}>

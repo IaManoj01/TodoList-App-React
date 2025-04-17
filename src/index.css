@@ -2,3 +2,7 @@
 .btn-change{
     @apply bg-purple-800 hover:bg-purple-900 p-2 py-1 mx-6 text-sm font-bold rounded-md text-white;
 }
+
+body{
+    background-color: rgb(201, 214, 233);
+}
